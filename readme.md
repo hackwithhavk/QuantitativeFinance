@@ -15,8 +15,9 @@ All project work should be documented according to the handbook before it is tre
 ## Project leadership
 
 - **Organization president and idea originator:** Summer
-- **Vice President, Project lead, day-to-day owners:** Cail
+- **Vice President, Project lead, day-to-day owners:** Mail
  **Executive Coordinator, Project lead, day-to-day owners:** Sanchin
+  **Treasurer, Project lead, day-to-day owners:** Raymundo
 - **Contributors:** Approved student applicants and project participants
 
 ## Detailed project documents
