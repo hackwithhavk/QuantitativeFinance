@@ -1,0 +1,169 @@
+# Lab Notebook Entry: [October 13th 2026: SP500 Dataset found and loaded in]
+
+## Entry metadata
+
+| Field | Value |
+| --- | --- |
+| Entry ID | `[2026-11-13_Ojas-Vairagkar_&SP-500-Dataset-loaded]` |
+| Title | `[ S& P 500 Dataset Retrieved and processed]` |
+| Author | `[Ojas Vairagkar]` |
+| Date/time started | `[2026-10-12 12:30 ET]` |
+| Date/time completed | `[N/A]` |
+| Status | `in progress` |
+| Project area | `data` |
+| Lead | `[Raymundo]` |
+| Reviewer | `[Raymundo]` |
+| Related task/issue | `[N/A]` |
+| Related entries | `[N/A]` |
+| Repository commit | `[N/A]` |
+
+## 1. Question or objective
+
+What specific question is this entry answering, or what concrete task is it completing? 
+Here we were to retrieve a S & P 500 Stock Market Dataset, i got one from Kaggle. 
+After which we were to process the data and clean it so we can begin with the Data Analysis, Visualization and Machine Learning part of it the following week. 
+
+## 2. Motivation and scope
+
+Why does this matter to the project? State what this entry includes and what it explicitly does not include.
+It is important because we need to have data that is accurate and complete,
+only after which we can move forward with Machine Learning, Data Analysis and Data Visualization to make conclusions, 
+
+**In scope:**
+
+- [Renaming variables in every file to a name that sounds more specific, making sure there's no null/duplicate values, which if there are we need to impute values.
+In our sp_companies file there were missing values, no duplicate values where we were able to impute the median in all missing values since there were not a
+high percent of missing values, and sp_index had no missing values or duplicate values. ]
+
+**Out of scope:**
+
+- [If there are a lot of missing values, it is best to altogether disregard the dataset or remove the null values,
+sp_stocks had no duplicate values but had too many null values, here since we had many real values remaining 
+despite most of the values being null values, we decided to remove all null values for our sp_stocks file to work with the remaining real values.]
+
+## 3. Success criteria
+
+Define what must be true for this work to be considered successful. Use observable criteria where possible.
+
+- [There must not be any null values or duplicate values or missing values, only then can we proceed with using the data.]
+- [The data must be accurate and there can not be any inaccuracies or extreme values, since we need the correct data before proceeding.]
+
+## 4. Background and hypothesis
+
+Record relevant context, prior work, and the hypothesis or expectation. If this is not a hypothesis-driven experiment, explain the decision or learning objective.
+Here we are trying to retrieve a dataset where we can find trends after cleaning data for which we will use Machine Learning Models as well as visualize data. 
+We expected that we would have all the missing values imputed but because 'sp_stocks' had too many missing values we had to drop all missing values. 
+
+## 5. Materials and environment
+
+### Hardware
+
+- Device/kit label: N/A
+- Peripherals and configuration: N/A
+- Power mode or relevant hardware setting: N/A
+
+### Software
+
+- Operating system: N/A
+- JetPack/CUDA/runtime version: N/A
+- Python or language version: We used sci-kit learn for the KNNImputer and Jupyter Notebooks
+- Frameworks and dependency versions: N/A
+- Relevant commands or configuration: N/A
+
+### Data
+
+- Dataset name: S&P 500 Stocks (daily updated)
+- Source or URL: https://www.kaggle.com/datasets/andrewmvd/sp-500-stocks?select=sp500_stocks.csv
+- Provider/owner: Larxel
+- License or permission: CC0: Public Domain
+- Retrieval date: October 12th 2026
+- Version/hash: 1023
+- Time period and coverage: sp_index ranges from 2014-12-22 to 2024-12-20, sp_stocks ranges from 2010-01-04 to 2024-12-20, 
+ sp_companies has no specified range but based on the other two datasets the last entry should have been on 2024-12-20. 
+- Storage location: I used the following functions to get it into Colab: 
+import kagglehub
+import os
+# Download latest version
+path = kagglehub.dataset_download("andrewmvd/sp-500-stocks")
+print("Path to dataset files:", path)
+
+- Sensitive-data check: `No restricted data included`
+
+## 6. Procedure
+
+Write the procedure in enough detail for another contributor to repeat it. Include commands, parameters, random seeds, split logic, configuration, and any deviations from the original plan.
+
+1. [Import KaggleHub and OS into jupyter notebook (it is too large to download all three datasets), write code to load it through a path, then print path to confirm it's there.]
+2. [Import all necessary libraries needed (such as KNNImputer for imputing where there's missing values)]
+3. [Load in all three datasets, after which rename all the variables to something that'll sound more specific.]
+4. [After having renamed all variables in all three datasets, check for null or duplicate values]
+5. [After having found no duplicate values in any dataset, a small percent of null values in sp_companies and a lot of null values in sp_stocks, proceed to next step.]
+6. [Use KNNImputer to impute the median where there's missing values in sp_companies as well as change the state (which is categorical) to "unknown".]
+7. [Even though there's a large amount of null values in sp_stocks, the amount of non-null or usable values is still considerably high, 
+so we will drop all null values tahan just disregard the dataset entirely.]
+
+## 7. Observations and evidence: Told by Lead/Reviewer to disregard this section
+
+Record what happened without interpretation first. Link tables, figures, logs, screenshots, or other artifacts.
+
+| Artifact | Location/link | What it shows |
+| --- | --- | --- |
+|  |  |  |
+
+## 8. Results: Told by Lead/Reviewer to disregard this section
+
+State the measured results, including units and evaluation window. For modeling, include the baseline and metric definitions.
+
+| Method/condition | Metric/result | Baseline comparison | Notes |
+| --- | --- | --- | --- |
+|  |  |  |  |
+
+## 9. Interpretation
+
+What do the observations mean in relation to the objective? Separate supported conclusions from tentative explanations.
+Our objective as of now was to have data cleaned so we can proceed to the next steps, we got it cleaned for sp_companies and already had it for sp_index, 
+for sp_stocks we had to disregard all the null values because of their large size but we could not disregard the dataset entirely either. 
+Overall, we'll be working with/making conclusions from less data than expected but it is better than having missing/null values or no dataset at all. 
+
+## 10. Limitations, risks, and quality checks
+
+Document limitations such as small samples, data leakage, look-ahead bias, survivorship bias, non-stationarity, hardware variability, missing values, untested assumptions, or limited participant feedback.
+
+- Privacy/security check: 
+- Reproducibility check:
+- Scope/funding check:
+- Financial-education disclaimer included where needed: `Yes / No / N/A`
+- Known limitations: Missing data, many null values in sp_companies and sp_stocks and missing data for qualitative variables in sp_companies,
+in sp_index there's many missing dates, but we could use imputation because they don't make up a large percentage of our dataset. 
+
+## 11. Decision and status
+
+Choose one and explain it:
+
+- [X] Continue as planned
+- [ ] Revise the method and repeat
+- [ ] Stop; result is not useful for the stated purpose
+- [ ] Escalate to Sanchin and Cail for a scope, risk, funding, or external-communication decision; involve Summer when organization-level commitments are affected
+- [ ] Mark complete for the stated educational purpose
+
+Decision rationale: Since we have data accurate enough, we can proceed with data analysis, visualization and machine learning for making conclusions as of now.
+
+## 12. Next actions: Advised by Reviewer/Lead to disregard for first entry.
+
+| Action | Owner | Due date | Status |
+| --- | --- | --- | --- |
+|  |  |  |  |
+
+## 13. Review record:  Advised by Reviewer/Lead to disregard for first entry.
+
+| Reviewer | Date | Comment/request | Resolution |
+| --- | --- | --- | --- |
+|  |  |  |  |
+
+## 14. Corrections or follow-up notes
+
+Use this section for dated additions. Do not erase the original record.
+
+### `[Date/time ET] — [Author]`
+
+[Correction, clarification, or follow-up.]
