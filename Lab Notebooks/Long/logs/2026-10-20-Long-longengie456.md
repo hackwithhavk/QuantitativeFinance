@@ -6,18 +6,18 @@
 
 | Field | Value |
 | --- | --- |
-| Entry ID | `2026-10-13-Long-longengie456` |
+| Entry ID | `2026-10-20-Long-longengie456` |
 | Title | `[Short descriptive title]` |
 | Author | `Khanh Long Nguyen` |
-| Date/time started | `2026-10-13 20:58 ET` |
+| Date/time started | `2026-10-20 20:58 ET` |
 | Date/time completed | `N/A` |
-| Status | `planned` |
+| Status | `in progress` |
 | Project area | `data` |
 | Lead | `[Sanchin, Cail, or assigned lead]` |
 | Reviewer | `[Name]` |
 | Related task/issue | `[Link or N/A]` |
 | Related entries | `[Links or N/A]` |
-| Repository commit | `N/A` |
+| Repository commit | `9108aff17547296e4c05db05a1a917eee0c1ea8d` |
 
 ## 1. Question or objective
 How effectively do balance sheet accounting metrics explain or predict subsequent equity price performance and risk across large-cap US equities?
