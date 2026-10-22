@@ -1,0 +1,170 @@
+# Lab Notebook Entry: [October 21st 2026: SP500-Datasets-Combined-and-visualized]
+
+## Entry metadata
+
+| Field | Value |
+| --- | --- |
+| Entry ID | `[2026-10-21_Ojas-Vairagkar_&SP-500-Datasets-combined-and-visualized]` |
+| Title | `[ S&P 500 Datasets combined and visualized]` |
+| Author | `[Ojas Vairagkar]` |
+| Date/time started | `[2026-10-21 12:30 ET]` |
+| Date/time completed | `[N/A]` |
+| Status | `in progress` |
+| Project area | `data` |
+| Lead | `[Raymundo]` |
+| Reviewer | `[Raymundo]` |
+| Related task/issue | `[N/A]` |
+| Related entries | `[N/A]` |
+| Repository commit | `[N/A]` |
+
+## 1. Question or objective
+
+What specific question is this entry answering, or what concrete task is it completing? 
+We were to get to the exploratory data analysis phase which we did after I combined the the three different datasets into one. 
+We visualized three graphs, each showing a different story but more or less the same purpose. We also got our research question (I confirmed with the lead):
+"How effectively can we predict future stock volatility and risk-adjusted return categories for S&P 500 companies by leveraging firm-specific
+fundamental indicators (e.g., EBITDA, market capitalization, sector) and historical pricing metrics?"
+The above question is what we'll be trying to answer over the course of this project. 
+
+
+## 2. Motivation and scope
+
+Why does this matter to the project? State what this entry includes and what it explicitly does not include.
+It is improtant so that we have a research question to begin with, based on which we'll know where to go with the project, visualizations help find patterns/trends. 
+
+**In scope:**
+
+- [Visualizing two to three important graphs that'll have everything important needed to move forward with this project. ]
+
+**Out of scope:**
+
+- [Working with outliers and knowing if they contribute any meaning to our dataset/research question.]
+
+## 3. Success criteria
+
+Define what must be true for this work to be considered successful. Use observable criteria where possible.
+
+- [There must be a story we should be able to tell with the visualizations given to us.]
+- [The datasets must be combined so we have less complications (the lead helped with this part very much).]
+
+## 4. Background and hypothesis
+
+Record relevant context, prior work, and the hypothesis or expectation. If this is not a hypothesis-driven experiment, explain the decision or learning objective.
+Here we are trying to combine datasets where we can find trends after visualizing data for which we will use Machine Learning Models. 
+We expected that we'll get to feature engineering and machine learning but that's going to take more time since I had to start over after combining three datasets. 
+
+## 5. Materials and environment
+
+### Hardware
+
+- Device/kit label: N/A
+- Peripherals and configuration: N/A
+- Power mode or relevant hardware setting: N/A
+
+### Software
+
+- Operating system: N/A
+- JetPack/CUDA/runtime version: N/A
+- Python or language version: We used python libraries for combining the three datasets into one and visualizing the one dataset. 
+- Frameworks and dependency versions: N/A
+- Relevant commands or configuration: N/A
+
+### Data
+
+- Dataset name: S&P 500 Stocks (daily updated)
+- Source or URL: https://www.kaggle.com/datasets/andrewmvd/sp-500-stocks?select=sp500_stocks.csv
+- Provider/owner: Larxel
+- License or permission: CC0: Public Domain
+- Retrieval date: October 12th 2026
+- Version/hash: 1023
+- Time period and coverage: sp_index ranges from 2014-12-22 to 2024-12-20, sp_stocks ranges from 2010-01-04 to 2024-12-20, 
+ sp_companies has no specified range but based on the other two datasets the last entry should have been on 2024-12-20. 
+- Storage location: I used the following functions to get it into Colab: 
+import kagglehub
+import os
+# Download latest version
+path = kagglehub.dataset_download("andrewmvd/sp-500-stocks")
+print("Path to dataset files:", path)
+
+- Sensitive-data check: `No restricted data included`
+
+## 6. Procedure
+
+Write the procedure in enough detail for another contributor to repeat it. Include commands, parameters, random seeds, split logic, configuration, and any deviations from the original plan.
+
+1. [Import KaggleHub and OS into jupyter notebook (it is too large to download all three datasets), write code to load it through a path, then print path to confirm it's there.]
+2. [Import all necessary libraries needed (such as KNNImputer for imputing where there's missing values)]
+3. [Load in all three datasets, after which rename all the variables to something that'll sound more specific.]
+4. [After having renamed all variables in all three datasets, check for null or duplicate values]
+5. [After having found no duplicate values in any dataset, a small percent of null values in sp_companies and a lot of null values in sp_stocks, proceed to next step.]
+6. [Use KNNImputer to impute the median where there's missing values in sp_companies as well as change the state (which is categorical) to "unknown".]
+7. [Even though there's a large amount of null values in sp_stocks, the amount of non-null or usable values is still considerably high, 
+so we will drop all null values tahan just disregard the dataset entirely.]
+8. (Updated October 21st) [We will combine the three datasets into one so that there's less confusion in the future]. 
+9. (Updated October 21st) [We will visualize the data and find trends such as closing price for different sector companies]. 
+
+## 7. Observations and evidence: Told by Lead/Reviewer to disregard this section
+
+Record what happened without interpretation first. Link tables, figures, logs, screenshots, or other artifacts.
+
+| Artifact | Location/link | What it shows |
+| --- | --- | --- |
+|  |  |  |
+
+## 8. Results: Told by Lead/Reviewer to disregard this section
+
+State the measured results, including units and evaluation window. For modeling, include the baseline and metric definitions.
+
+| Method/condition | Metric/result | Baseline comparison | Notes |
+| --- | --- | --- | --- |
+|  |  |  |  |
+
+## 9. Interpretation
+
+What do the observations mean in relation to the objective? Separate supported conclusions from tentative explanations.
+Our objective as of now was to have datasets combined and visualized. It showed index value as the years went by (exception was 2020 because of covid pandemic), 
+it also showed trends varying heavily for different companies by industry type in market capitalization, also showed stock closing prices by sector where
+utilities and energy have a comparatively low spread compared to other sectors for closing price (USD). 
+
+## 10. Limitations, risks, and quality checks
+
+Document limitations such as small samples, data leakage, look-ahead bias, survivorship bias, non-stationarity, hardware variability, missing values, untested assumptions, or limited participant feedback.
+
+- Privacy/security check: 
+- Reproducibility check:
+- Scope/funding check:
+- Financial-education disclaimer included where needed: `Yes / No / N/A`
+- Known limitations: We can only explain so much data because there's so many different values to work with, this will require work with feature engineering and ML models 
+which hopefully will be achieved by the next entry. 
+
+## 11. Decision and status
+
+Choose one and explain it:
+
+- [X] Continue as planned
+- [ ] Revise the method and repeat
+- [ ] Stop; result is not useful for the stated purpose
+- [ ] Escalate to Sanchin and Cail for a scope, risk, funding, or external-communication decision; involve Summer when organization-level commitments are affected
+- [ ] Mark complete for the stated educational purpose
+
+Decision rationale: Since we have a complete dataset and somewhat have a story, we can proceed with feature engineering and machine learning.
+
+## 12. Next actions: Advised by Reviewer/Lead to disregard for first entry.
+
+| Action | Owner | Due date | Status |
+| --- | --- | --- | --- |
+|Exploratory Data Analysis | Raymundo advises me, I try my best to follow instructions | october 21st 2026 | Complete |
+
+## 13. Review record: To be reviewed when task is met.
+
+| Reviewer | Date | Comment/request | Resolution |
+| --- | --- | --- | --- |
+|  |  |  |  |
+
+## 14. Corrections or follow-up notes
+
+Use this section for dated additions. Do not erase the original record.
+
+### `[Date/time ET] — [Author]`
+
+[Correction, clarification, or follow-up.]
